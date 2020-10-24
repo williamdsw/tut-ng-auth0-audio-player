@@ -61,7 +61,7 @@ export class AudioService {
 
   // adiciona eventos de audio com handler para objeto
   private addEvents(audio, handler) {
-    for (let event in AudioEvents) {
+    for (const event in AudioEvents) {
       if (AudioEvents.hasOwnProperty (event)) {
         audio.addEventListener (AudioEvents[event], handler);
       }
@@ -70,7 +70,7 @@ export class AudioService {
 
   // remove eventos de audio com handler para objeto
   private removeEvents(audio, handler) {
-    for (let event in AudioEvents) {
+    for (const event in AudioEvents) {
       if (AudioEvents.hasOwnProperty (event)) {
         audio.removeEventListener (event, handler);
       }

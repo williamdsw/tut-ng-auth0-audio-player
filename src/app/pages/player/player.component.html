@@ -1,54 +1,58 @@
-<div class="container">
+<main>
+    <article class="container">
 
-    <!-- toolbar -->
-    <mat-toolbar color="primary" class="main-toolbar">
-        <span> Audio Player </span>
-    </mat-toolbar>
-
-    <div class="content">
-        <mat-list color="primary">
-            <h3 mat-subheader> Songs </h3>
-
-            <!-- song data -->
-            <mat-list-item *ngFor="let file of files; let currentIndex = index;" (click)="openFile(file, currentIndex);">
-                <mat-icon color="primary" mat-list-icon>music_note</mat-icon>
-                <h4 mat-line> {{ file.name }} </h4>
-                <h5 mat-line> by {{ file.artist }} </h5>
-                <mat-icon color="primary" *ngIf="currentFile.index === currentIndex && !state?.hasError">volume_up</mat-icon>
-                <h6 *ngIf="currentFile.index === currentIndex && state?.hasError"> ERROR </h6>
-                <mat-divider></mat-divider>
-            </mat-list-item>
-        </mat-list>
-    </div>
-
-    <div class="media-footer">
-        <mat-toolbar color="primary">
-
-            <!-- slider -->
-            <mat-toolbar-row>
-                <mat-slider class="time-slider" min="0" [max]="state?.duration" step="1" [value]="state?.currentTime" (input)="onSliderChangeEnd($event)" [disabled]="state?.hasError || currentFile.index === undefined"></mat-slider>
-            </mat-toolbar-row>
-
-            <!-- timer -->
-            <mat-toolbar-row class="media-action-bar">
-                {{ state?.readableCurrentTime }} / {{ state?.readableDuration }}
-            </mat-toolbar-row>
-
-            <!-- buttons -->
-            <mat-toolbar-row class="media-action-bar">
-                <button mat-button [disabled]="isFirstPlaying ()" (click)="previous()">
-                    <mat-icon mat-list-icon>skip_previous</mat-icon>
-                </button>
-                <button mat-button [disabled]="state?.hasError" *ngIf="!state?.isPlaying" (click)="play()">
-                    <mat-icon mat-list-icon>play_circle_filled</mat-icon>
-                </button>
-                <button mat-button (click)="pause()" *ngIf="state?.isPlaying">
-                    <mat-icon mat-list-icon>pause</mat-icon>
-                </button>
-                <button mat-button [disabled]="isLastPlaying()" (click)="next()">
-                    <mat-icon mat-list-icon>skip_next</mat-icon>
-                </button>
-            </mat-toolbar-row>
+        <!-- toolbar -->
+        <mat-toolbar color="primary" class="main-toolbar">
+            <span> Audio Player </span>
         </mat-toolbar>
-    </div>
-</div>
+
+        <div class="content">
+            <mat-list color="primary">
+                <header>
+                    <h3 mat-subheader> Songs </h3>
+                </header>
+
+                <!-- song data -->
+                <mat-list-item *ngFor="let file of files; let currentIndex = index;" (click)="openFile(file, currentIndex);">
+                    <mat-icon color="primary" mat-list-icon>music_note</mat-icon>
+                    <h4 mat-line> {{ file.name }} </h4>
+                    <h5 mat-line> by {{ file.artist }} </h5>
+                    <mat-icon color="primary" *ngIf="currentFile.index === currentIndex && !state?.hasError">volume_up</mat-icon>
+                    <h6 *ngIf="currentFile.index === currentIndex && state?.hasError"> ERROR </h6>
+                    <mat-divider></mat-divider>
+                </mat-list-item>
+            </mat-list>
+        </div>
+
+        <div class="media-footer">
+            <mat-toolbar color="primary">
+
+                <!-- slider -->
+                <mat-toolbar-row>
+                    <mat-slider class="time-slider" min="0" [max]="state?.duration" step="1" [value]="state?.currentTime" (input)="onSliderChangeEnd($event)" [disabled]="state?.hasError || currentFile.index === undefined"></mat-slider>
+                </mat-toolbar-row>
+
+                <!-- timer -->
+                <mat-toolbar-row class="media-action-bar">
+                    {{ state?.readableCurrentTime }} / {{ state?.readableDuration }}
+                </mat-toolbar-row>
+
+                <!-- buttons -->
+                <mat-toolbar-row class="media-action-bar">
+                    <button mat-button [disabled]="isFirstPlaying ()" (click)="previous()">
+                        <mat-icon mat-list-icon>skip_previous</mat-icon>
+                    </button>
+                    <button mat-button [disabled]="state?.hasError" *ngIf="!state?.isPlaying" (click)="play()">
+                        <mat-icon mat-list-icon>play_circle_filled</mat-icon>
+                    </button>
+                    <button mat-button (click)="pause()" *ngIf="state?.isPlaying">
+                        <mat-icon mat-list-icon>pause</mat-icon>
+                    </button>
+                    <button mat-button [disabled]="isLastPlaying()" (click)="next()">
+                        <mat-icon mat-list-icon>skip_next</mat-icon>
+                    </button>
+                </mat-toolbar-row>
+            </mat-toolbar>
+        </div>
+    </article>
+</main>

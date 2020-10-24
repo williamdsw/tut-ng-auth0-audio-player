@@ -8,11 +8,23 @@ export class CloudService {
 
   // FIELDS
 
+  private baseUrl = 'https://ia801609.us.archive.org/16/items/nusratcollection_20170414_0953';
+
   private files: any = [
     {
-      url: "https://ia801609.us.archive.org/16/items/nusratcollection_20170414_0953/Man%20Atkiya%20Beparwah%20De%20Naal%20Nusrat%20Fateh%20Ali%20Khan.mp3",
-      name: "Man Atkeya Beparwah",
-      artist: "Nusrat Fateh Ali Khan"
+      url: `${this.baseUrl}/Man%20Atkiya%20Beparwah%20De%20Naal%20Nusrat%20Fateh%20Ali%20Khan.mp3`,
+      name: 'Man Atkeya Beparwah',
+      artist: 'Nusrat Fateh Ali Khan'
+    },
+    {
+      url: `${this.baseUrl}/Man%20Atkiya%20Beparwah%20De%20Naal%20Nusrat%20Fateh%20Ali%20Khan.mp3`,
+      name: 'Man Atkeya Beparwah',
+      artist: 'Nusrat Fateh Ali Khan'
+    },
+    {
+      url: `${this.baseUrl}/Man%20Atkiya%20Beparwah%20De%20Naal%20Nusrat%20Fateh%20Ali%20Khan.mp3`,
+      name: 'Man Atkeya Beparwah',
+      artist: 'Nusrat Fateh Ali Khan'
     },
   ];
 
